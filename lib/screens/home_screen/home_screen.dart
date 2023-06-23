@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 import 'package:lottie/lottie.dart';
 
-import 'package:myportforlio_flutter/screens/home_screen/home_widgets/introduction_widget.dart';
+import 'package:myportforlio_flutter/screens/home_screen/home_controller.dart';
+
 import 'package:myportforlio_flutter/screens/home_screen/home_widgets/nav_buttons.dart';
 import 'package:myportforlio_flutter/utils/app_color.dart';
 
@@ -15,65 +17,50 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
-  final ScrollController _scrollController = ScrollController();
-  double appBarHeight = 50;
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  bool isShowAppbar = true;
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(
-          child: LottieBuilder.asset(
-            "assets/animations/space.json",
-            width: Dimension.screenWidth(context),
-            height: Dimension.screenHeight(context),
-            fit: BoxFit.fill,
+    return GetBuilder<HomeController>(
+      builder: (controller) => Stack(
+        children: [
+          SizedBox(
+            child: LottieBuilder.asset(
+              "assets/animations/space.json",
+              width: Dimesions.screeWidth,
+              height: Dimesions.screenHeight,
+              fit: BoxFit.fill,
+            ),
           ),
-        ),
-        Container(
-          decoration: BoxDecoration(gradient: AppColor.backGroundGr),
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            appBar: PreferredSize(
-              preferredSize: Size.fromHeight(
-                  isShowAppbar ? Dimension.height40(context) : 0),
-              child: AppBar(
+          Container(
+            decoration: BoxDecoration(gradient: AppColor.backGroundGr),
+            child: Scaffold(
                 backgroundColor: Colors.transparent,
-                elevation: 0,
-                actions: [
-                  navButtons(context, title: "Home", onPress: () {}),
-                  navButtons(context, title: "Projects", onPress: () {}),
-                  navButtons(context, title: "About Me", onPress: () {}),
-                  navButtons(context, title: "Contact Me", onPress: () {})
-                ],
-              ),
-            ),
-            body: SingleChildScrollView(
-              controller: _scrollController,
-              padding:
-                  EdgeInsets.symmetric(horizontal: Dimension.width10(context)),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: Dimension.height10(context),
-                    ),
-                    introductionWidget(context),
-                    SizedBox(
-                      height: Dimension.height10(context),
-                    ),
-                    introductionWidget(context),
-                  ]),
-            ),
-          ),
-        )
-      ],
+                appBar: AppBar(
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  scrolledUnderElevation: 0,
+                  actions: [
+                    navButtons(context, title: "Home", onPress: () {}),
+                    navButtons(context, title: "Projects", onPress: () {}),
+                    navButtons(context, title: "About Me", onPress: () {}),
+                    navButtons(context, title: "Contact Me", onPress: () {})
+                  ],
+                ),
+                body: ListView.custom(
+                    childrenDelegate: SliverChildBuilderDelegate(
+                        childCount: controller.pages.length,
+                        (context, index) => controller.pages[index]))),
+          )
+        ],
+      ),
     );
   }
 }
+//  TransformerPageView(
+//                   viewportFraction: 1,
+//                   physics: const ClampingScrollPhysics(),
+//                   transformer: ScaleAndFadeTransformer(),
+//                   scrollDirection: Axis.vertical,
+//                   itemCount: controller.pages.length,
+//                   itemBuilder: (context, index) => controller.pages[index],
+//                 )

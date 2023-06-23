@@ -7,6 +7,6 @@ Widget navButtons(BuildContext context,
       onPressed: onPress,
       child: Text(
         title,
-        style: MyTextStyle.label(context),
+        style: MyTextStyle.label(),
       ));
 }
