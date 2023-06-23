@@ -8,10 +8,10 @@ abstract class HomeState extends Equatable {
 }
 
 class HomeInitial extends HomeState {
-  const HomeInitial(this.index);
-  final int index;
+  const HomeInitial(this.showAppBar);
+  final bool showAppBar;
   @override
-  List<Object?> get props => [index];
+  List<Object?> get props => [showAppBar];
 }
 
 @immutable

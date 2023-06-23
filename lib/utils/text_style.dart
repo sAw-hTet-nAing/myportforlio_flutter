@@ -20,8 +20,8 @@ class MyTextStyle {
 
   static TextStyle label(BuildContext context) {
     return GoogleFonts.poppins(
-        fontWeight: FontWeight.w600,
-        fontSize: Dimension.font16(context),
+        fontWeight: FontWeight.w400,
+        fontSize: Dimension.font16(context) * 0.8,
         color: Colors.white);
   }
 }

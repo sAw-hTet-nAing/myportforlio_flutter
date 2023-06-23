@@ -5,19 +5,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(const HomeInitial(0));
+  HomeCubit() : super(const HomeInitial(false));
 
-  void increaseCounter() {
+  void showAppBar() {
     if (state is HomeInitial) {
-      emit(HomeInitial((state as HomeInitial).index + 1));
+      emit(const HomeInitial(true));
     }
   }
 
-  void decreaseCounter() {
-    if ((state as HomeInitial).index == 0) {
-      emit(HomeInitial((state as HomeInitial).index));
-    } else {
-      emit(HomeInitial((state as HomeInitial).index - 1));
+  void hide() {
+    if (state is HomeInitial) {
+      emit(const HomeInitial(false));
     }
   }
 }
