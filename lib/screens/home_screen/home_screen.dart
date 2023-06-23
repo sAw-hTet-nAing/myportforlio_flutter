@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:myportforlio_flutter/screens/home_screen/cubit/home_cubit.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -57,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 } else {
                   return Container();
                 }
-              })
+              }),
             ]),
           );
         },
