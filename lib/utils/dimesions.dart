@@ -5,6 +5,10 @@ class Dimension {
     return MediaQuery.of(context).size.height;
   }
 
+  static double screenWidth(BuildContext context) {
+    return MediaQuery.of(context).size.width;
+  }
+
   static double pageView(BuildContext context) {
     return screenHeight(context) / 2.23;
   }
