@@ -10,6 +10,7 @@ class HomeController extends GetxController implements GetxService {
     super.onReady();
   }
 
+  RxBool isLoading = false.obs;
   List pages = [].obs;
   void initializePages() {
     pages = [introductionWidget(), skillsWidget(), Container()];
