@@ -236,9 +236,7 @@ class MyTextRevealState extends State<MyTextReveal>
       end: widget.strings[_currentIndex].length.toDouble(),
     ).animate(curvedAnimation)
       ..addListener(() {
-        if (mounted) {
-          setState(() {});
-        }
+        setState(() {});
       })
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
@@ -250,9 +248,7 @@ class MyTextRevealState extends State<MyTextReveal>
         } else if (status == AnimationStatus.dismissed) {
           _nextString();
           Future.delayed(const Duration(seconds: 1), () {
-            if (mounted) {
-              _controller.forward();
-            }
+            _controller.forward();
           });
         }
       });

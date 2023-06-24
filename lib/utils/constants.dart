@@ -1,15 +1,15 @@
 class AppConstant {
   static const String introductionText = "I'm ";
-  static const String introductionText1 = """ "Saw Htet Naing" """;
+  static const String introductionText1 = """ "Saw Htet Naing" .""";
   static const String introductionText2 =
-      """,a passionate Flutter and Swift iOS developer. I specialize in creating stunning mobile applications that deliver exceptional user experiences.
+      """I am from Myanmar, a talented and passionate developer specializing in Flutter and Swift. With a deep understanding of these programming languages, I possess the skills necessary to create robust and user-friendly applications for various platforms.
 
-With Flutter, I excel at building cross-platform apps that run smoothly on both Android and iOS devices. Leveraging Flutter's flexible framework, I create visually appealing interfaces and ensure seamless functionality across platforms.
+As a Flutter developer, I excel at building cross-platform mobile applications that deliver seamless experiences to users across Android and iOS devices. With Flutter's extensive widget library and my expertise in UI/UX design, I can develop visually appealing and highly functional apps that meet the needs of clients and end-users.
 
-As a Swift iOS developer, I harness the power of Apple's ecosystem to craft native applications that are sleek and responsive. I focus on delivering exceptional user interfaces and flawless performance on Apple devices.
+Additionally, my proficiency in Swift allows me to create powerful and efficient native iOS applications. I am well-versed in Apple's development frameworks and guidelines, ensuring that the apps I build are optimized for performance, security, and user satisfaction. Whether it's creating intuitive user interfaces, implementing complex functionalities, or integrating third-party APIs, I can handle it all with finesse.
 
-I thrive on collaboration and attention to detail, working closely with clients to understand their unique requirements. By translating your vision into a tangible product, I exceed expectations and create apps that transform businesses.
+In addition to my technical skills, I am a proactive and collaborative team member. I enjoy working closely with clients, designers, and fellow developers to bring ideas to life and exceed project expectations. I am always eager to learn and stay updated with the latest advancements in mobile app development, enabling me to deliver cutting-edge solutions to my clients.
 
-I stay updated with the latest trends and technologies in mobile app development, integrating cutting-edge advancements into my work. Let's explore my portfolio and discuss how I can contribute to your next app development project. Together, we'll transform your ideas into exceptional mobile experiences!
+Overall, as a Flutter and Swift developer from Myanmar, I bring a strong work ethic, technical expertise, and a passion for creating exceptional mobile applications.
 """;
 }

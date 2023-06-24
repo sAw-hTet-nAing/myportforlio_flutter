@@ -50,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   child: Scaffold(
                       backgroundColor: Colors.transparent,
                       appBar: AppBar(
+                        scrolledUnderElevation: 0,
                         backgroundColor: Colors.transparent,
                         elevation: 0,
                         actions: [

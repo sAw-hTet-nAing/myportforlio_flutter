@@ -14,6 +14,13 @@ class MyTextStyle {
   static TextStyle normal() {
     return GoogleFonts.poppins(
         fontWeight: FontWeight.normal,
+        fontSize: Dimesions.font26 * 0.8,
+        color: Colors.grey);
+  }
+
+  static TextStyle normalsmall() {
+    return GoogleFonts.poppins(
+        fontWeight: FontWeight.normal,
         fontSize: Dimesions.font12,
         color: Colors.grey);
   }
@@ -21,7 +28,14 @@ class MyTextStyle {
   static TextStyle label() {
     return GoogleFonts.poppins(
         fontWeight: FontWeight.w400,
-        fontSize: Dimesions.font16 * 0.8,
+        fontSize: Dimesions.font26 * 0.8,
+        color: Colors.white);
+  }
+
+  static TextStyle labelSmall() {
+    return GoogleFonts.poppins(
+        fontWeight: FontWeight.w400,
+        fontSize: Dimesions.font16,
         color: Colors.white);
   }
 
