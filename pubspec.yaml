@@ -1,44 +1,39 @@
 name: myportforlio_flutter
 description: A new Flutter project.
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
-
+  sdk: ">=3.0.5 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   lottie: ^2.4.0
   google_fonts: ^5.1.0
+  easy_stepper: ^0.7.2
   easy_debounce: ^2.0.3
   another_transformer_page_view: ^2.0.1
+  opscroll_web: ^0.3.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
   flutter_lints: ^2.0.0
 
-
 flutter:
-
-
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - assets/
-      - assets/animations/
+    - assets/
+    - assets/animations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

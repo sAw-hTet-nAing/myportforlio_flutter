@@ -24,4 +24,10 @@ class MyTextStyle {
         fontSize: Dimesions.font16 * 0.8,
         color: Colors.white);
   }
+
+  static TextStyle label2 = GoogleFonts.orbitron(
+      fontWeight: FontWeight.bold,
+      fontSize: Dimesions.font26,
+      letterSpacing: 2,
+      color: const Color.fromARGB(255, 156, 39, 176));
 }
