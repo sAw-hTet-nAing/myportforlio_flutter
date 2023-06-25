@@ -248,7 +248,11 @@ class MyTextRevealState extends State<MyTextReveal>
         } else if (status == AnimationStatus.dismissed) {
           _nextString();
           Future.delayed(const Duration(seconds: 1), () {
-            _controller.forward();
+            if (mounted) {
+              _controller.forward();
+            } else {
+              _controller.reset();
+            }
           });
         }
       });

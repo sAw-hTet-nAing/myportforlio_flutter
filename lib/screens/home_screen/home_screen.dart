@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late PageController _pageController;
   @override
   void initState() {
-    _pageController = PageController();
+    _pageController = PageController(initialPage: 1, keepPage: true);
     super.initState();
   }
 

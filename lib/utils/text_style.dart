@@ -39,6 +39,20 @@ class MyTextStyle {
         color: Colors.white);
   }
 
+  static TextStyle smallestText = GoogleFonts.poppins(
+      fontWeight: FontWeight.w600,
+      fontSize: Dimesions.font12 * 0.8,
+      color: Colors.white);
+  static TextStyle normalBold = GoogleFonts.orbitron(
+      fontWeight: FontWeight.bold,
+      fontSize: Dimesions.font12,
+      letterSpacing: 2,
+      color: Colors.white);
+  static TextStyle subtitle = GoogleFonts.poppins(
+      fontWeight: FontWeight.w600,
+      fontSize: Dimesions.font16 * 1.5,
+      letterSpacing: 2,
+      color: Colors.white);
   static TextStyle label2 = GoogleFonts.orbitron(
       fontWeight: FontWeight.bold,
       fontSize: Dimesions.font26,

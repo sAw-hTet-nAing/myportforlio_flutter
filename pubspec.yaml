@@ -20,7 +20,9 @@ dependencies:
   easy_debounce: ^2.0.3
   another_transformer_page_view: ^2.0.1
   opscroll_web: ^0.3.2
+  flutter_animate: ^4.2.0
 
+  percent_indicator: ^4.2.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
