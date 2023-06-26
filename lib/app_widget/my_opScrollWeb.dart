@@ -30,6 +30,7 @@ class MyOpScrollWeb extends StatefulWidget {
   final bool isTouchScrollingActive;
   final VoidCallback? onTapGesture;
   final Color dropColor;
+  final Function(int)? onPageChange;
   final MyScrollingAnimationOptions scrollingAnimationOptions;
 
   static const MethodChannel _channel = MethodChannel('opscroll_web');
@@ -47,7 +48,8 @@ class MyOpScrollWeb extends StatefulWidget {
       this.dropColor = Colors.blueAccent,
       this.scrollCurve = Curves.easeIn,
       this.scrollSpeed = const Duration(milliseconds: 900),
-      this.scrollDirection = Axis.vertical})
+      this.scrollDirection = Axis.vertical,
+      this.onPageChange})
       : super(key: key);
 
   static Future<String?> get platformVersion async {
@@ -221,6 +223,7 @@ class _MyOpScrollWebState extends State<MyOpScrollWeb>
                 children: [
                   PageView(
                     controller: pageController,
+                    onPageChanged: widget.onPageChange,
                     scrollDirection: widget.scrollDirection,
                     allowImplicitScrolling: true,
                     clipBehavior: Clip.antiAliasWithSaveLayer,

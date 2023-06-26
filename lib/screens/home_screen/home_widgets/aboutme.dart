@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:lottie/lottie.dart';
 
 import 'package:myportforlio_flutter/data/skills_data.dart';
 import 'package:myportforlio_flutter/utils/app_color.dart';
@@ -104,7 +105,12 @@ class _AboutMeWidgetState extends State<AboutMeWidget>
                     Text(
                       "About Me",
                       style: MyTextStyle.label(),
-                    ),
+                    )
+                        .animate(onPlay: (controller) => controller.repeat())
+                        .shimmer(duration: 1000.ms, color: AppColor.purple)
+                        .animate()
+                        .fadeIn(duration: 1200.ms, curve: Curves.easeOutQuad)
+                        .slide(),
                     SizedBox(
                       height: Dimesions.height15,
                     ),
@@ -141,74 +147,82 @@ class _AboutMeWidgetState extends State<AboutMeWidget>
                     .animate()
                     .fadeIn(duration: 1200.ms, curve: Curves.easeOutQuad)
                     .slide(),
-                SizedBox(
-                  height: Dimesions.height10,
+                Center(
+                  child: SizedBox(
+                    height: Dimesions.screenHeight * 0.25,
+                    width: Dimesions.screeWidth * 0.25,
+                    child: LottieBuilder.asset(
+                      "/animations/development.json",
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-
-                // Expanded(
-                //   child: Stack(
-                //     alignment: Alignment.center,
-                //     children: [
-                //       AnimatedPositioned(
-                //           duration: Duration(milliseconds: speed.toInt()),
-                //           left: Dimesions.screeWidth * 0.15,
-                //           top: Dimesions.screenHeight * 0.2,
-                //           // left: x,
-                //           // top: y,
-                //           child: Image.asset(
-                //             image,
-                //             height: dvdHeight,
-                //             width: dvdWidth,
-                //             fit: BoxFit.contain,
-                //           )),
-                //       Positioned.fill(
-                //           child: Image.asset(
-                //         "/images/tv.png",
-                //         fit: BoxFit.fitHeight,
-                //       )),
-                //     ],
-                //   ),
-                // ),
-                const Divider(
-                  color: Colors.white,
+                SizedBox(
+                  height: Dimesions.height40 * 1.5,
                 ),
                 Expanded(
                     child: GridView.builder(
                         itemCount: skillsData.length,
                         physics: const NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            mainAxisExtent: Dimesions.height40 * 2,
+                            mainAxisExtent: Dimesions.height40 * 3,
                             crossAxisCount: 4),
                         itemBuilder: (contex, index) {
                           return SizedBox(
-                            height: Dimesions.height40 * 3,
+                            height: Dimesions.height40 * 2,
                             child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   SizedBox(
                                     height: Dimesions.height10,
                                   ),
-                                  CircularPercentIndicator(
-                                    radius: Dimesions.height15 * 1.2,
-                                    lineWidth: Dimesions.width5 / 1.5,
-                                    header: Container(
+                                  Container(
                                       margin: EdgeInsets.only(
                                           bottom: Dimesions.height10),
-                                      child: Text(
-                                        skillsData[index]["name"],
-                                        style: MyTextStyle.normalBold,
+                                      height: Dimesions.height40,
+                                      width: Dimesions.height40,
+                                      padding: index == skillsData.length - 1
+                                          ? const EdgeInsets.all(3)
+                                          : EdgeInsets.zero,
+                                      child: Image.asset(
+                                        skillsData[index]["image"],
+                                        height: Dimesions.height40,
+                                        width: Dimesions.height40,
+                                      )),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        width: Dimesions.width30 * 2,
+                                        child: Text(
+                                          skillsData[index]["name"],
+                                          style: MyTextStyle.normalBold,
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.center,
+                                        ),
                                       ),
-                                    ),
-                                    circularStrokeCap: CircularStrokeCap.round,
-                                    curve: Curves.bounceIn,
-                                    animation: true,
-                                    center: Text(
-                                      "${skillsData[index]["percent"]}%",
-                                      style: MyTextStyle.smallestText,
-                                    ),
-                                    percent: skillsData[index]["process"],
-                                    progressColor: processColor(
-                                        process: skillsData[index]["process"]),
+                                      CircularPercentIndicator(
+                                        radius: Dimesions.height15 * 1.1,
+                                        lineWidth: 3,
+                                        circularStrokeCap:
+                                            CircularStrokeCap.round,
+                                        curve: Curves.bounceIn,
+                                        animation: true,
+                                        center: Text(
+                                          "${skillsData[index]["percent"]}%",
+                                          style: MyTextStyle.smallestText
+                                              .copyWith(
+                                                  fontSize:
+                                                      Dimesions.font12 * 0.7),
+                                        ),
+                                        percent: skillsData[index]["process"],
+                                        progressColor: processColor(
+                                            process: skillsData[index]
+                                                ["process"]),
+                                      )
+                                    ],
                                   )
                                 ]),
                           );

@@ -43,10 +43,9 @@ class MyTextStyle {
       fontWeight: FontWeight.w600,
       fontSize: Dimesions.font12 * 0.8,
       color: Colors.white);
-  static TextStyle normalBold = GoogleFonts.orbitron(
+  static TextStyle normalBold = GoogleFonts.poppins(
       fontWeight: FontWeight.bold,
       fontSize: Dimesions.font12,
-      letterSpacing: 2,
       color: Colors.white);
   static TextStyle subtitle = GoogleFonts.poppins(
       fontWeight: FontWeight.w600,

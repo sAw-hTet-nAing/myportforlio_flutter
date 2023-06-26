@@ -20,9 +20,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late PageController _pageController;
+  final HomeController _homeController = Get.find<HomeController>();
   @override
   void initState() {
-    _pageController = PageController(initialPage: 1, keepPage: true);
+    _pageController = PageController(
+        initialPage: _homeController.selecredPage.value, keepPage: true);
     super.initState();
   }
 
@@ -53,17 +55,24 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         scrolledUnderElevation: 0,
                         backgroundColor: Colors.transparent,
                         elevation: 0,
-                        actions: [
-                          navButtons(context, title: "Home", onPress: () {}),
-                          navButtons(context,
-                              title: "Projects", onPress: () {}),
-                          navButtons(context,
-                              title: "About Me", onPress: () {}),
-                          navButtons(context,
-                              title: "Contact Me", onPress: () {})
-                        ],
+                        actions: List.generate(
+                          controller.navList.length,
+                          (index) => navButtons(context,
+                              onPage: controller.selecredPage.value == index,
+                              title: controller.navList[index],
+                              onPress: () => _pageController.animateToPage(
+                                  index,
+                                  duration: const Duration(milliseconds: 400),
+                                  curve: Curves.easeInOut)),
+                        ),
                       ),
                       body: MyOpScrollWeb(
+                        onPageChange: (p0) {
+                          setState(() {
+                            controller.selecredPage.value = p0;
+                            print(controller.selecredPage.value);
+                          });
+                        },
                         onePageChildren: controller.pages,
                         scrollDirection: Axis.vertical,
                         pageController: _pageController,
