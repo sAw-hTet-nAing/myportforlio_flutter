@@ -4,57 +4,62 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myportforlio_flutter/utils/dimesions.dart';
 
 class MyTextStyle {
-  static TextStyle heading() {
+  static TextStyle heading(BuildContext context) {
     return GoogleFonts.poppins(
         fontWeight: FontWeight.bold,
-        fontSize: Dimesions.font26 * 2,
+        fontSize: Dimensions.font26(context) * 2,
         color: Colors.white);
   }
 
-  static TextStyle normal() {
+  static TextStyle normal(BuildContext context) {
     return GoogleFonts.poppins(
         fontWeight: FontWeight.normal,
-        fontSize: Dimesions.font26 * 0.8,
+        fontSize: Dimensions.font26(context) * 0.8,
         color: Colors.grey);
   }
 
-  static TextStyle normalsmall() {
+  static TextStyle normalsmall(BuildContext context) {
     return GoogleFonts.poppins(
         fontWeight: FontWeight.normal,
-        fontSize: Dimesions.font12,
+        fontSize: Dimensions.font12(context),
         color: Colors.grey);
   }
 
-  static TextStyle label() {
+  static TextStyle label(BuildContext context) {
     return GoogleFonts.poppins(
         fontWeight: FontWeight.w400,
-        fontSize: Dimesions.font26 * 0.8,
+        fontSize: Dimensions.font26(context) * 0.8,
         color: Colors.white);
   }
 
-  static TextStyle labelSmall() {
+  static TextStyle labelSmall(BuildContext context) {
     return GoogleFonts.poppins(
         fontWeight: FontWeight.w400,
-        fontSize: Dimesions.font16,
+        fontSize: Dimensions.font16(context),
         color: Colors.white);
   }
 
-  static TextStyle smallestText = GoogleFonts.poppins(
+  static TextStyle smallestText(BuildContext context) => GoogleFonts.poppins(
       fontWeight: FontWeight.w600,
-      fontSize: Dimesions.font12 * 0.8,
+      fontSize: Dimensions.font12(context) * 0.8,
       color: Colors.white);
-  static TextStyle normalBold = GoogleFonts.poppins(
+  static TextStyle normalBold(BuildContext context) => GoogleFonts.poppins(
       fontWeight: FontWeight.bold,
-      fontSize: Dimesions.font12,
+      fontSize: Dimensions.font12(context),
       color: Colors.white);
-  static TextStyle subtitle = GoogleFonts.poppins(
+  static TextStyle subtitle(BuildContext context) => GoogleFonts.poppins(
       fontWeight: FontWeight.w600,
-      fontSize: Dimesions.font16 * 1.5,
+      fontSize: Dimensions.font16(context) * 1.5,
       letterSpacing: 2,
       color: Colors.white);
-  static TextStyle label2 = GoogleFonts.orbitron(
+  static TextStyle label2(BuildContext context) => GoogleFonts.orbitron(
       fontWeight: FontWeight.bold,
-      fontSize: Dimesions.font26,
+      fontSize: Dimensions.font26(context),
+      letterSpacing: 2,
+      color: const Color.fromARGB(255, 156, 39, 176));
+  static TextStyle label2small(BuildContext context) => GoogleFonts.orbitron(
+      fontWeight: FontWeight.bold,
+      fontSize: Dimensions.font26(context) * 0.7,
       letterSpacing: 2,
       color: const Color.fromARGB(255, 156, 39, 176));
 }

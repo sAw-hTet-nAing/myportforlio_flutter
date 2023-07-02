@@ -5,8 +5,8 @@ import 'package:lottie/lottie.dart';
 
 import 'package:myportforlio_flutter/app_widget/my_opScrollWeb.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_controller.dart';
+import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/desktop_app_bar.dart';
 
-import 'package:myportforlio_flutter/screens/home_screen/home_widgets/nav_buttons.dart';
 import 'package:myportforlio_flutter/utils/app_color.dart';
 
 import 'package:myportforlio_flutter/utils/dimesions.dart';
@@ -19,18 +19,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
-  late PageController _pageController;
   final HomeController _homeController = Get.find<HomeController>();
   @override
   void initState() {
-    _pageController = PageController(
+    _homeController.pageController = PageController(
         initialPage: _homeController.selecredPage.value, keepPage: true);
     super.initState();
   }
 
   @override
   void dispose() {
-    _pageController.dispose();
+    _homeController.pageController.dispose();
     super.dispose();
   }
 
@@ -42,40 +41,30 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 SizedBox(
                   child: LottieBuilder.asset(
                     "assets/animations/space.json",
-                    width: Dimesions.screeWidth,
-                    height: Dimesions.screenHeight,
+                    width: Dimensions.screenWidth(context),
+                    height: Dimensions.screenHeight(context),
                     fit: BoxFit.fill,
                   ),
                 ),
                 Container(
                   decoration: BoxDecoration(gradient: AppColor.backGroundGr),
                   child: Scaffold(
-                      backgroundColor: Colors.transparent,
-                      appBar: AppBar(
-                        scrolledUnderElevation: 0,
-                        backgroundColor: Colors.transparent,
-                        elevation: 0,
-                        actions: List.generate(
-                          controller.navList.length,
-                          (index) => navButtons(context,
-                              onPage: controller.selecredPage.value == index,
-                              title: controller.navList[index],
-                              onPress: () => _pageController.animateToPage(
-                                  index,
-                                  duration: const Duration(milliseconds: 400),
-                                  curve: Curves.easeInOut)),
-                        ),
+                      appBar: PreferredSize(
+                        preferredSize:
+                            Size.fromHeight(Dimensions.height40(context)),
+                        child: const DesktopAppBar(),
                       ),
+                      backgroundColor: Colors.transparent,
                       body: MyOpScrollWeb(
                         onPageChange: (p0) {
                           setState(() {
                             controller.selecredPage.value = p0;
-                            print(controller.selecredPage.value);
+                            // controller.equalizeScreens();
                           });
                         },
                         onePageChildren: controller.pages,
                         scrollDirection: Axis.vertical,
-                        pageController: _pageController,
+                        pageController: _homeController.pageController,
                         scrollCurve: Curves.easeIn,
                         scrollSpeed: const Duration(milliseconds: 400),
                         isFloatingButtonActive: false,

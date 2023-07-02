@@ -21,7 +21,7 @@ dependencies:
   another_transformer_page_view: ^2.0.1
   opscroll_web: ^0.3.2
   flutter_animate: ^4.2.0
-
+  smooth_page_indicator: ^1.1.0
   percent_indicator: ^4.2.3
 dev_dependencies:
   flutter_test:

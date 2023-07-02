@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:myportforlio_flutter/utils/dimesions.dart';
 
-Widget arrowDownWidget() {
+Widget arrowDownWidget(BuildContext context) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
       Container(
         width: 2,
-        height: Dimesions.screenHeight * 0.2,
+        height: Dimensions.screenHeight(context) * 0.2,
         color: Colors.grey,
       ),
       const Icon(

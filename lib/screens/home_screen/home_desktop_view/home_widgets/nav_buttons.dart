@@ -10,7 +10,7 @@ Widget navButtons(BuildContext context,
   return Container(
     decoration: BoxDecoration(
         color: onPage ? AppColor.purple : Colors.transparent,
-        borderRadius: BorderRadius.circular(Dimesions.radius15),
+        borderRadius: BorderRadius.circular(Dimensions.radius15(context)),
         boxShadow: [
           onPage
               ? const BoxShadow(
@@ -24,7 +24,7 @@ Widget navButtons(BuildContext context,
         onPressed: onPress,
         child: Text(
           title,
-          style: MyTextStyle.labelSmall(),
+          style: MyTextStyle.labelSmall(context),
         )),
   );
 }
