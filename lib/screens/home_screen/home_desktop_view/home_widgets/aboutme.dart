@@ -17,8 +17,7 @@ class AboutMeWidget extends StatefulWidget {
   State<AboutMeWidget> createState() => _AboutMeWidgetState();
 }
 
-class _AboutMeWidgetState extends State<AboutMeWidget>
-    with TickerProviderStateMixin {
+class _AboutMeWidgetState extends State<AboutMeWidget> {
   // Random random = Random();
   // Color dvdColor = Colors.pink;
   // String image = "/images/vscode.png";

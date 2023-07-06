@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:lottie/lottie.dart';
 import 'package:myportforlio_flutter/app_widget/arrow_down_widget.dart';
+import 'package:myportforlio_flutter/app_widget/earth/planet.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_controller.dart';
 
 import 'package:myportforlio_flutter/utils/constants.dart';
@@ -20,6 +20,7 @@ class TabletIntroductionWidget extends StatefulWidget {
 }
 
 class _TabletIntroductionWidgetState extends State<TabletIntroductionWidget> {
+  bool isInteracting = false;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (controller) {
@@ -31,8 +32,31 @@ class _TabletIntroductionWidgetState extends State<TabletIntroductionWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isInteracting = !isInteracting;
+                  });
+                },
+                child: !isInteracting
+                    ? Planet(
+                        height: Dimensions.screenHeight(context) * 0.6,
+                        width: Dimensions.screenWidth(context) * 0.4,
+                        key: const Key('Planet1'),
+                        interative: false,
+                      )
+                    : Planet(
+                        height: Dimensions.screenHeight(context) * 0.6,
+                        width: Dimensions.screenWidth(context) * 0.4,
+                        key: const Key('Planet2'),
+                        interative: true,
+                      ),
+              ),
               SizedBox(
-                width: Dimensions.screenWidth(context) * 0.5,
+                width: Dimensions.width10(context),
+              ),
+              SizedBox(
+                width: Dimensions.screenWidth(context) * 0.45,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -68,7 +92,6 @@ class _TabletIntroductionWidgetState extends State<TabletIntroductionWidget> {
                           width: Dimensions.width10(context),
                         ),
                         SizedBox(
-                          width: Dimensions.screenWidth(context) * 0.3,
                           child: MyTextReveal(
                             initialText: '********',
                             shouldPlayOnStart: true,
@@ -115,12 +138,13 @@ class _TabletIntroductionWidgetState extends State<TabletIntroductionWidget> {
                   ],
                 ),
               ),
-              LottieBuilder.asset(
-                "assets/animations/astronaut.json",
-                fit: BoxFit.cover,
-                height: Dimensions.screenHeight(context) * 0.6,
-                width: Dimensions.screenWidth(context) * 0.2,
-              )
+
+              // LottieBuilder.asset(
+              //   "assets/animations/astronaut.json",
+              //   fit: BoxFit.cover,
+              //   height: Dimensions.screenHeight(context) * 0.6,
+              //   width: Dimensions.screenWidth(context) * 0.2,
+              // )
             ],
           ),
         ),

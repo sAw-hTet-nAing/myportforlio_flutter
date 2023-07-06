@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:lottie/lottie.dart';
 import 'package:myportforlio_flutter/app_widget/arrow_down_widget.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_controller.dart';
 
@@ -9,6 +8,7 @@ import 'package:myportforlio_flutter/utils/constants.dart';
 import 'package:myportforlio_flutter/utils/dimesions.dart';
 import 'package:myportforlio_flutter/utils/text_style.dart';
 
+import '../../../../app_widget/earth/planet.dart';
 import '../../../../app_widget/randomText_reveal.dart';
 
 class IntroductionWidget extends StatefulWidget {
@@ -19,6 +19,7 @@ class IntroductionWidget extends StatefulWidget {
 }
 
 class _IntroductionWidgetState extends State<IntroductionWidget> {
+  bool isInteracting = false;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (controller) {
@@ -30,8 +31,28 @@ class _IntroductionWidgetState extends State<IntroductionWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isInteracting = !isInteracting;
+                  });
+                },
+                child: !isInteracting
+                    ? Planet(
+                        height: Dimensions.screenHeight(context),
+                        width: Dimensions.screenWidth(context) * 0.4,
+                        key: const Key('Planet1'),
+                        interative: false,
+                      )
+                    : Planet(
+                        height: Dimensions.screenHeight(context),
+                        width: Dimensions.screenWidth(context) * 0.4,
+                        key: const Key('Planet2'),
+                        interative: true,
+                      ),
+              ),
               SizedBox(
-                width: Dimensions.screenWidth(context) * 0.55,
+                width: Dimensions.screenWidth(context) * 0.5,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -114,12 +135,13 @@ class _IntroductionWidgetState extends State<IntroductionWidget> {
                   ],
                 ),
               ),
-              LottieBuilder.asset(
-                "assets/animations/astronaut.json",
-                fit: BoxFit.cover,
-                height: Dimensions.screenHeight(context) * 0.7,
-                width: Dimensions.screenWidth(context) * 0.3,
-              )
+
+              // LottieBuilder.asset(
+              //   "assets/animations/astronaut.json",
+              //   fit: BoxFit.cover,
+              //   height: Dimensions.screenHeight(context) * 0.7,
+              //   width: Dimensions.screenWidth(context) * 0.3,
+              // )
             ],
           ),
         ),

@@ -23,6 +23,10 @@ dependencies:
   flutter_animate: ^4.2.0
   smooth_page_indicator: ^1.1.0
   percent_indicator: ^4.2.3
+  flutter_cube: ^0.1.1
+  dotted_border: ^2.0.0+3
+  motion: ^1.4.0
+ 
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -36,6 +40,7 @@ flutter:
   assets:
     - assets/
     - assets/animations/
+    - assets/earth/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

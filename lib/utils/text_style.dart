@@ -7,14 +7,21 @@ class MyTextStyle {
   static TextStyle heading(BuildContext context) {
     return GoogleFonts.poppins(
         fontWeight: FontWeight.bold,
-        fontSize: Dimensions.font26(context) * 2,
+        fontSize: Dimensions.font26(context) * 1.8,
+        shadows: [
+          const Shadow(
+            offset: Offset(2, 2),
+            color: Color.fromARGB(255, 156, 39, 176),
+            blurRadius: 2,
+          )
+        ],
         color: Colors.white);
   }
 
   static TextStyle normal(BuildContext context) {
     return GoogleFonts.poppins(
         fontWeight: FontWeight.normal,
-        fontSize: Dimensions.font26(context) * 0.8,
+        fontSize: Dimensions.font26(context) * 0.7,
         color: Colors.grey);
   }
 
@@ -29,6 +36,13 @@ class MyTextStyle {
     return GoogleFonts.poppins(
         fontWeight: FontWeight.w400,
         fontSize: Dimensions.font26(context) * 0.8,
+        shadows: [
+          const Shadow(
+            offset: Offset(2, 2),
+            color: Color.fromARGB(255, 156, 39, 176),
+            blurRadius: 2,
+          )
+        ],
         color: Colors.white);
   }
 
@@ -54,9 +68,17 @@ class MyTextStyle {
       color: Colors.white);
   static TextStyle label2(BuildContext context) => GoogleFonts.orbitron(
       fontWeight: FontWeight.bold,
-      fontSize: Dimensions.font26(context),
+      fontSize: Dimensions.font26(context) * 0.8,
       letterSpacing: 2,
-      color: const Color.fromARGB(255, 156, 39, 176));
+      shadows: [
+        const Shadow(
+          offset: Offset(2, 2),
+          color: Color.fromARGB(255, 156, 39, 176),
+          blurRadius: 2,
+        )
+      ],
+      // color:
+      color: Colors.white);
   static TextStyle label2small(BuildContext context) => GoogleFonts.orbitron(
       fontWeight: FontWeight.bold,
       fontSize: Dimensions.font26(context) * 0.7,

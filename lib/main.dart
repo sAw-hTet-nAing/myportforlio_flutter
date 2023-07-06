@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
+import 'package:motion/motion.dart';
 import 'package:myportforlio_flutter/app_binding/app_binding.dart';
 import 'package:myportforlio_flutter/responsive_layout/responsive.dart';
 
@@ -10,7 +11,7 @@ import 'package:myportforlio_flutter/screens/home_screen/home_tablet_view/home_t
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Motion.instance.initialize();
   runApp(const MyApp());
 }
 

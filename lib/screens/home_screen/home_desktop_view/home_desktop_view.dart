@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   child: Scaffold(
                       appBar: PreferredSize(
                         preferredSize:
-                            Size.fromHeight(Dimensions.height40(context)),
+                            Size.fromHeight(Dimensions.height40(context) * 1.5),
                         child: const DesktopAppBar(),
                       ),
                       backgroundColor: Colors.transparent,
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         scrollCurve: Curves.easeIn,
                         scrollSpeed: const Duration(milliseconds: 400),
                         isFloatingButtonActive: false,
-                        isTouchScrollingActive: true,
+                        isTouchScrollingActive: false,
                         scrollingAnimationOptions:
                             MyScrollingAnimationOptions.Fading,
                       )),

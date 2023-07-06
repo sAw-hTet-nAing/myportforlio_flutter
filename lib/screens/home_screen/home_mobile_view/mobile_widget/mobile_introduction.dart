@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:lottie/lottie.dart';
 import 'package:myportforlio_flutter/app_widget/arrow_down_widget.dart';
+import 'package:myportforlio_flutter/app_widget/earth/planet.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_controller.dart';
 
 import 'package:myportforlio_flutter/utils/constants.dart';
@@ -19,6 +19,7 @@ class MobileIntroduction extends StatefulWidget {
 }
 
 class _MobileIntroductionWidgetState extends State<MobileIntroduction> {
+  bool isInteracting = false;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (controller) {
@@ -30,12 +31,25 @@ class _MobileIntroductionWidgetState extends State<MobileIntroduction> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: LottieBuilder.asset(
-                  "assets/animations/astronaut.json",
-                  fit: BoxFit.cover,
-                  height: Dimensions.screenHeight(context) * 0.4,
-                ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isInteracting = !isInteracting;
+                  });
+                },
+                child: !isInteracting
+                    ? Planet(
+                        height: Dimensions.screenHeight(context) * 0.4,
+                        width: Dimensions.screenWidth(context),
+                        key: const Key('Planet1'),
+                        interative: false,
+                      )
+                    : Planet(
+                        height: Dimensions.screenHeight(context) * 0.4,
+                        width: Dimensions.screenWidth(context),
+                        key: const Key('Planet2'),
+                        interative: true,
+                      ),
               ),
               SizedBox(
                   width: Dimensions.screenWidth(context) * 0.2,

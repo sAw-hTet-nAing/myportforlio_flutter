@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/contact.dart';
 
 import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/introduction_widget.dart';
@@ -13,12 +14,13 @@ import 'package:myportforlio_flutter/screens/home_screen/home_tablet_view/home_t
 
 class HomeController extends GetxController {
   RxBool isLoading = false.obs;
-  RxInt selecredPage = 0.obs;
+  RxInt selecredPage = 2.obs;
   RxBool isChangeTabs = false.obs;
   late PageController pageController;
   // RxInt mobileSelectedPage = 0.obs;
   // RxInt tabletSelectedPage = 1.obs;
   RxList<String> navList = ["Home", "About me", "Projects", "Contact me"].obs;
+  RxList<bool> projectHoverList = List.generate(6, (index) => false).obs;
   List<Widget> pages = <Widget>[
     const IntroductionWidget(),
     const AboutMeWidget(),
@@ -38,18 +40,13 @@ class HomeController extends GetxController {
     const ContactWidget()
   ];
 
-  // changeSelectedPage() {
-  //   if (mobileSelectedPage.value == 1 || mobileSelectedPage.value == 2) {
-  //     selecredPage.value = 1;
-  //   } else {
-  //     selecredPage.value = mobileSelectedPage.value;
-  //   }
+  onMouseHover(index) {
+    projectHoverList[index] = true;
+    update();
+  }
 
-  //   update();
-  // }
-
-  // equalizeScreens() {
-  //   mobileSelectedPage.value = selecredPage.value;
-  //   update();
-  // }
+  onExitMouse(index) {
+    projectHoverList[index] = false;
+    update();
+  }
 }

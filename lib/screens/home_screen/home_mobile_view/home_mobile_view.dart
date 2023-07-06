@@ -73,7 +73,7 @@ class _HomeMobileViewState extends State<HomeMobileView> {
                         scrollCurve: Curves.easeIn,
                         scrollSpeed: const Duration(milliseconds: 400),
                         isFloatingButtonActive: false,
-                        isTouchScrollingActive: true,
+                        isTouchScrollingActive: false,
                         scrollingAnimationOptions:
                             MyScrollingAnimationOptions.Fading,
                       )),

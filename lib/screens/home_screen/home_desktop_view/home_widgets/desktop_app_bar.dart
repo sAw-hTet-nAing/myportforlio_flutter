@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_controller.dart';
-import 'package:myportforlio_flutter/utils/app_color.dart';
+
 import 'package:myportforlio_flutter/utils/dimesions.dart';
 import 'package:myportforlio_flutter/utils/text_style.dart';
 
@@ -39,13 +39,27 @@ class _DesktopAppBarState extends State<DesktopAppBar>
                             curve: Curves.bounceInOut,
                             duration: const Duration(milliseconds: 400),
                             child: Container(
+                              constraints: BoxConstraints(
+                                minWidth: Dimensions.screenWidth(context) * 0.1,
+                              ),
+                              alignment: Alignment.center,
                               margin: EdgeInsets.symmetric(
-                                  horizontal: Dimensions.width10(context)),
+                                  horizontal: Dimensions.width10(context),
+                                  vertical: Dimensions.width5(context)),
                               padding:
                                   EdgeInsets.all(Dimensions.width5(context)),
                               decoration: BoxDecoration(
+                                  boxShadow: [
+                                    controller.selecredPage.value == index
+                                        ? const BoxShadow(
+                                            offset: Offset(3, 3),
+                                            color: Colors.purple,
+                                            blurRadius: 4,
+                                            spreadRadius: 2)
+                                        : const BoxShadow()
+                                  ],
                                   color: controller.selecredPage.value == index
-                                      ? AppColor.purple
+                                      ? Colors.black45
                                       : Colors.black12,
                                   borderRadius: BorderRadius.circular(
                                       Dimensions.radius15(context) / 2)),

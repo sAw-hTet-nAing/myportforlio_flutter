@@ -12,4 +12,6 @@ In addition to my technical skills, I am a proactive and collaborative team memb
 
 Overall, as a Flutter and Swift developer from Myanmar, I bring a strong work ethic, technical expertise, and a passion for creating exceptional mobile applications.
 """;
+  static const String projectText =
+      """As a seasoned Flutter developer, I have had the opportunity to work on a diverse range of projects, including 12 e-commerce apps, 2 learning management systems (LMS), 2 movie streaming apps, 1 library app, and 1 gold calculator app. Throughout these experiences, I have honed my skills in Flutter development and gained valuable insights into building successful and user-friendly applications.I am excited to continue exploring new avenues in Flutter development and contributing to the ever-evolving world of mobile applications.""";
 }
