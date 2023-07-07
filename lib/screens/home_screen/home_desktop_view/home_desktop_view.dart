@@ -3,13 +3,20 @@ import 'package:get/get.dart';
 
 import 'package:lottie/lottie.dart';
 
-import 'package:myportforlio_flutter/app_widget/my_opScrollWeb.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_controller.dart';
+import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/aboutme.dart';
+import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/bottom_widget.dart';
+import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/contact.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/desktop_app_bar.dart';
+import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/experiences.dart';
+
+import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/introduction_widget.dart';
+import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/projects.dart';
 
 import 'package:myportforlio_flutter/utils/app_color.dart';
 
 import 'package:myportforlio_flutter/utils/dimesions.dart';
+import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,10 +27,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   final HomeController _homeController = Get.find<HomeController>();
+  late final ScrollController _scrollController;
   @override
   void initState() {
-    _homeController.pageController = PageController(
-        initialPage: _homeController.selecredPage.value, keepPage: true);
+    _scrollController = ScrollController();
+    _scrollController.addListener(() {});
     super.initState();
   }
 
@@ -55,23 +63,22 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         child: const DesktopAppBar(),
                       ),
                       backgroundColor: Colors.transparent,
-                      body: MyOpScrollWeb(
-                        onPageChange: (p0) {
-                          setState(() {
-                            controller.selecredPage.value = p0;
-                            // controller.equalizeScreens();
-                          });
-                        },
-                        onePageChildren: controller.pages,
-                        scrollDirection: Axis.vertical,
-                        pageController: _homeController.pageController,
-                        scrollCurve: Curves.easeIn,
-                        scrollSpeed: const Duration(milliseconds: 400),
-                        isFloatingButtonActive: false,
-                        isTouchScrollingActive: false,
-                        scrollingAnimationOptions:
-                            MyScrollingAnimationOptions.Fading,
-                      )),
+                      body: WebSmoothScroll(
+                          animationDuration: 100,
+                          controller: _scrollController,
+                          child: ListView(
+                            controller: _scrollController,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            children: [
+                              const IntroductionWidget(),
+                              const AboutMeWidget(),
+                              const ProjectWidget(),
+                              const ExperiencesWidget(),
+                              const ContactWidget(),
+                              bottomWidget(context),
+                            ],
+                          ))),
                 )
               ],
             ));

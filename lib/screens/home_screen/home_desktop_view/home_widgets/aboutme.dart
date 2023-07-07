@@ -121,6 +121,7 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
           VerticalDivider(
             color: Colors.white,
             endIndent: Dimensions.height40(context) * 2,
+            indent: Dimensions.height40(context) * 2,
           ),
           SizedBox(
             width: Dimensions.width30(context),

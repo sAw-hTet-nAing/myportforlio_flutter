@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class Dimensions {
   static double screenHeight(BuildContext context) =>
-      MediaQuery.of(context).size.height;
+      MediaQuery.sizeOf(context).height;
   static double screenWidth(BuildContext context) =>
-      MediaQuery.of(context).size.width;
+      MediaQuery.sizeOf(context).width;
   static double pageView(BuildContext context) => screenHeight(context) / 2.23;
 
   static double height10(BuildContext context) => screenHeight(context) / 71.5;

@@ -1,4 +1,5 @@
-import 'package:dotted_border/dotted_border.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,7 @@ import 'package:myportforlio_flutter/utils/app_color.dart';
 import 'package:myportforlio_flutter/utils/constants.dart';
 import 'package:myportforlio_flutter/utils/dimesions.dart';
 import 'package:myportforlio_flutter/utils/text_style.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProjectWidget extends StatefulWidget {
   const ProjectWidget({super.key});
@@ -18,13 +20,18 @@ class ProjectWidget extends StatefulWidget {
 }
 
 class _ProjectWidgetState extends State<ProjectWidget> {
+  final CarouselController _carouselController = CarouselController();
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
         builder: (controller) => Container(
-              padding: EdgeInsets.all(Dimensions.height10(context)),
+              padding:
+                  EdgeInsets.symmetric(horizontal: Dimensions.width20(context)),
+              width: Dimensions.screenWidth(context) * 0.9,
+              height: Dimensions.screenHeight(context) * 1,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       "As A Flutter Developer",
@@ -56,34 +63,99 @@ class _ProjectWidgetState extends State<ProjectWidget> {
                     ),
                     Center(
                       child: SizedBox(
-                        height: Dimensions.screenHeight(context) * 0.4,
-                        child: Wrap(
-                          alignment: WrapAlignment.center,
-                          runAlignment: WrapAlignment.center,
-                          runSpacing: Dimensions.height10(context),
-                          children: List.generate(
-                              projectData.length,
-                              (index) => MouseRegion(
-                                    onEnter: (event) =>
-                                        controller.onMouseHover(index),
-                                    onExit: (event) =>
-                                        controller.onExitMouse(index),
-                                    child: _projectItems(
-                                      name: projectData[index]['name'],
-                                      img: projectData[index]['image'],
-                                      index: index,
-                                      context: context,
-                                    ),
+                          height: Dimensions.screenHeight(context) * 0.7,
+                          child: Stack(
+                            fit: StackFit.passthrough,
+                            children: [
+                              Positioned.fill(
+                                child: CarouselSlider(
+                                    items: List.generate(
+                                        projectData.length,
+                                        (index) => MouseRegion(
+                                              onEnter: (event) => controller
+                                                  .onMouseHover(index),
+                                              onExit: (event) =>
+                                                  controller.onExitMouse(index),
+                                              child: _projectItems(
+                                                name: projectData[index]
+                                                    ['name'],
+                                                img: projectData[index]
+                                                    ['image'],
+                                                index: index,
+                                                context: context,
+                                              ),
+                                            )),
+                                    carouselController: _carouselController,
+                                    options: CarouselOptions(
+                                      height:
+                                          Dimensions.screenHeight(context) * 7,
+                                      viewportFraction: 1,
+                                      initialPage: 0,
+                                      enableInfiniteScroll: true,
+                                      reverse: false,
+                                      autoPlay: false,
+                                      autoPlayInterval:
+                                          const Duration(seconds: 3),
+                                      autoPlayAnimationDuration:
+                                          const Duration(milliseconds: 800),
+                                      autoPlayCurve: Curves.fastOutSlowIn,
+                                      enlargeCenterPage: true,
+                                      enlargeFactor: 0.1,
+                                      scrollPhysics:
+                                          const NeverScrollableScrollPhysics(),
+                                      scrollDirection: Axis.vertical,
+                                      onPageChanged: (index, reason) {
+                                        setState(() {
+                                          controller.activeIndex.value = index;
+                                        });
+                                      },
+                                    )),
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(
+                                      right: Dimensions.height10(context)),
+                                  alignment: Alignment.centerRight,
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      IconButton(
+                                          onPressed: () => _carouselController
+                                              .previousPage(),
+                                          icon: Icon(
+                                            Icons.arrow_upward,
+                                            color: Colors.white,
+                                            size:
+                                                Dimensions.iconSize25(context),
+                                          )),
+                                      AnimatedSmoothIndicator(
+                                        axisDirection: Axis.vertical,
+                                        activeIndex:
+                                            controller.activeIndex.value,
+                                        count: projectData.length,
+                                        effect: const WormEffect(
+                                            activeDotColor: AppColor.purple,
+                                            dotColor: Colors.white),
+                                      ),
+                                      IconButton(
+                                          onPressed: () =>
+                                              _carouselController.nextPage(),
+                                          icon: Icon(
+                                            Icons.arrow_downward,
+                                            color: Colors.white,
+                                            size:
+                                                Dimensions.iconSize25(context),
+                                          )),
+                                    ],
                                   )),
-                        ),
-                      ),
+                            ],
+                          )),
                     )
                   ]),
             ));
   }
 }
 
-final hoverTansForm = Matrix4.identity()..scale(1.1);
 Widget _projectItems({
   required String name,
   required String img,
@@ -91,85 +163,33 @@ Widget _projectItems({
   required BuildContext context,
 }) {
   return GetBuilder<HomeController>(
-      builder: (controller) => Obx(
-            () => GestureDetector(
-              child: SizedBox(
-                width: Dimensions.screenWidth(context) * 0.3,
-                child: Row(
-                  children: [
-                    Column(
-                      children: [
-                        Container(
-                          height: Dimensions.screenHeight(context) * 0.25,
-                          width: Dimensions.screenWidth(context) * 0.25,
-                          alignment: Alignment.center,
-                          child: DottedBorder(
-                            borderType: BorderType.RRect,
-                            strokeCap: StrokeCap.round,
-                            radius:
-                                Radius.circular(Dimensions.radius15(context)),
-                            color: controller.projectHoverList[index]
-                                ? Colors.transparent
-                                : Colors.white,
-                            child: Container(
-                              padding:
-                                  EdgeInsets.all(Dimensions.width10(context)),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                    Dimensions.radius15(context)),
-                              ),
-                              child: Transform(
-                                transform: controller.projectHoverList[index]
-                                    ? hoverTansForm
-                                    : Matrix4.identity(),
-                                alignment: Alignment.center,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(
-                                      Dimensions.radius15(context) / 2),
-                                  child: Image.asset(
-                                    img,
-                                    fit: BoxFit.fill,
-                                    height:
-                                        Dimensions.screenHeight(context) * 0.25,
-                                    width:
-                                        Dimensions.screenWidth(context) * 0.25,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: Dimensions.height10(context),
-                        ),
-                        Text(
-                          name,
-                          style: MyTextStyle.smallestText(context),
-                        )
-                      ],
-                    ),
-                    controller.projectHoverList[index]
-                        ? const SizedBox.shrink()
-                        : index != 5
-                            ? const Expanded(
-                                child: Divider(
-                                color: Colors.white,
-                              ))
-                            : const Expanded(
-                                child: Row(
-                                children: [
-                                  Expanded(
-                                    child: Divider(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.more_horiz,
-                                    color: Colors.white,
-                                  )
-                                ],
-                              ))
-                  ],
+      builder: (controller) => SizedBox(
+            // height: Dimensions.screenHeight(context) * 0.4,
+            width: Dimensions.screenWidth(context),
+            child: Container(
+              foregroundDecoration: BoxDecoration(
+                  borderRadius:
+                      BorderRadius.circular(Dimensions.radius15(context)),
+                  gradient: LinearGradient(colors: [
+                    Colors.black.withOpacity(0.8),
+                    Colors.black.withOpacity(0.5),
+                    Colors.black.withOpacity(0.4),
+                    Colors.black.withOpacity(0),
+                    Colors.black.withOpacity(0),
+                    Colors.black.withOpacity(0),
+                    Colors.black.withOpacity(0),
+                    Colors.black.withOpacity(0),
+                    Colors.black.withOpacity(0),
+                    Colors.black.withOpacity(0),
+                  ], begin: Alignment.centerRight, end: Alignment.centerLeft)),
+              decoration: BoxDecoration(
+                borderRadius:
+                    BorderRadius.circular(Dimensions.radius15(context)),
+                image: DecorationImage(
+                  image: AssetImage(
+                    img,
+                  ),
+                  fit: BoxFit.fill,
                 ),
               ),
             ),

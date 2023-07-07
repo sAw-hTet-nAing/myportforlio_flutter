@@ -26,7 +26,11 @@ dependencies:
   flutter_cube: ^0.1.1
   dotted_border: ^2.0.0+3
   motion: ^1.4.0
- 
+  web_smooth_scroll: ^1.1.0
+  carousel_slider: ^4.2.1
+  url_launcher: ^6.1.11
+  icons_plus: ^4.0.0
+  intl: ^0.18.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -41,6 +45,7 @@ flutter:
     - assets/
     - assets/animations/
     - assets/earth/
+    - assets/company/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

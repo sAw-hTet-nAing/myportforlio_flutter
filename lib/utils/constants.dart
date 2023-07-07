@@ -1,4 +1,11 @@
 class AppConstant {
+  static const String github = "https://github.com/sAw-hTet-nAing";
+  static const String gmail = "sawhtetnaing58@gmail.com";
+  static const String facebook =
+      "https://www.facebook.com/profile.php?id=100008820586196";
+  static const String linkedin =
+      "https://www.linkedin.com/in/saw-htet-naing-820088222/";
+  static const String viber = "+959444370477";
   static const String introductionText = "I'm ";
   static const String introductionText1 = """ "Saw Htet Naing" .""";
   static const String introductionText2 =
