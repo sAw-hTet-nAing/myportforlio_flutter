@@ -7,7 +7,7 @@ import 'package:myportforlio_flutter/screens/home_screen/home_controller.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/aboutme.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/bottom_widget.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/contact.dart';
-import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/desktop_app_bar.dart';
+
 import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/experiences.dart';
 
 import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_widgets/introduction_widget.dart';
@@ -16,7 +16,6 @@ import 'package:myportforlio_flutter/screens/home_screen/home_desktop_view/home_
 import 'package:myportforlio_flutter/utils/app_color.dart';
 
 import 'package:myportforlio_flutter/utils/dimesions.dart';
-import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,18 +25,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
-  final HomeController _homeController = Get.find<HomeController>();
   late final ScrollController _scrollController;
   @override
   void initState() {
     _scrollController = ScrollController();
-    _scrollController.addListener(() {});
+
     super.initState();
   }
 
   @override
   void dispose() {
-    _homeController.pageController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -57,28 +55,27 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 Container(
                   decoration: BoxDecoration(gradient: AppColor.backGroundGr),
                   child: Scaffold(
-                      appBar: PreferredSize(
-                        preferredSize:
-                            Size.fromHeight(Dimensions.height40(context) * 1.5),
-                        child: const DesktopAppBar(),
+                    // appBar: PreferredSize(
+                    //   preferredSize:
+                    //       Size.fromHeight(Dimensions.height40(context) * 1.5),
+                    //   child: const DesktopAppBar(),
+                    // ),
+                    backgroundColor: Colors.transparent,
+                    body: SingleChildScrollView(
+                      controller: _scrollController,
+                      physics: const ScrollPhysics(),
+                      child: Column(
+                        children: [
+                          const IntroductionWidget(),
+                          const AboutMeWidget(),
+                          const ProjectWidget(),
+                          const ExperiencesWidget(),
+                          const ContactWidget(),
+                          bottomWidget(context),
+                        ],
                       ),
-                      backgroundColor: Colors.transparent,
-                      body: WebSmoothScroll(
-                          animationDuration: 100,
-                          controller: _scrollController,
-                          child: ListView(
-                            controller: _scrollController,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            children: [
-                              const IntroductionWidget(),
-                              const AboutMeWidget(),
-                              const ProjectWidget(),
-                              const ExperiencesWidget(),
-                              const ContactWidget(),
-                              bottomWidget(context),
-                            ],
-                          ))),
+                    ),
+                  ),
                 )
               ],
             ));

@@ -9,8 +9,8 @@ import 'package:myportforlio_flutter/utils/app_color.dart';
 import 'package:myportforlio_flutter/utils/dimesions.dart';
 import 'package:myportforlio_flutter/utils/text_style.dart';
 
-class ExperiencesWidget extends GetView<HomeController> {
-  const ExperiencesWidget({super.key});
+class MobileExperiencesWidget extends GetView<HomeController> {
+  const MobileExperiencesWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +47,7 @@ class ExperiencesWidget extends GetView<HomeController> {
               expData.length,
               (index) => SizedBox(
                     width: Dimensions.screenWidth(context) * 0.3,
+                    height: Dimensions.screenHeight(context) * 0.35,
                     child: Card(
                         color: Colors.white12,
                         elevation: 5,
@@ -79,10 +80,9 @@ class ExperiencesWidget extends GetView<HomeController> {
                             Text(
                               expData[index]['role'],
                               style: MyTextStyle.normalBold(context),
+                              textAlign: TextAlign.center,
                             ),
-                            SizedBox(
-                              height: Dimensions.height10(context),
-                            ),
+                            const Spacer(),
                             TextButton.icon(
                                 icon: const Icon(Icons.arrow_outward_rounded),
                                 onPressed: () => controller.launchCompany(
@@ -95,18 +95,18 @@ class ExperiencesWidget extends GetView<HomeController> {
                         )),
                   )),
         ),
-        Row(
-          children: [
-            Expanded(child: LottieBuilder.asset("/animations/show_case.json")),
-            SizedBox(
-              width: Dimensions.screenWidth(context) * 0.4,
-              child: Text(
-                "Let me help you to build wonderful apps.",
-                style: MyTextStyle.heading(context),
-              ),
-            )
-          ],
-        )
+        SizedBox(
+          width: Dimensions.screenWidth(context) * 0.7,
+          child: Text(
+            "Let me help you to build wonderful apps.",
+            style: MyTextStyle.heading(context),
+          ),
+        ),
+        LottieBuilder.asset(
+          "/animations/show_case.json",
+          height: Dimensions.screenHeight(context) * 0.5,
+          width: Dimensions.screenWidth(context),
+        ),
       ]),
     );
   }

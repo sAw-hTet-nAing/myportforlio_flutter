@@ -10,78 +10,10 @@ import 'package:myportforlio_flutter/utils/dimesions.dart';
 import 'package:myportforlio_flutter/utils/text_style.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-class AboutMeWidget extends StatefulWidget {
+class AboutMeWidget extends StatelessWidget {
   const AboutMeWidget({super.key});
 
-  @override
-  State<AboutMeWidget> createState() => _AboutMeWidgetState();
-}
-
-class _AboutMeWidgetState extends State<AboutMeWidget> {
   // Random random = Random();
-  // Color dvdColor = Colors.pink;
-  // String image = "/images/vscode.png";
-  // double dvdWidth = Dimensions.height40(context), dvdHeight = Dimensions.height40(context);
-  // double x = Dimensions.screenWidth(context) * 0.14,
-  //     y = Dimesions.screenHeight * 0.2,
-  //     xSpeed = 40,
-  //     ySpeed = 40,
-  //     speed = 500;
-  // List images = [
-  //   "/images/vscode.png",
-  //   "/images/xcode.png",
-  //   "/images/figma.png",
-  //   "/images/android.png",
-  //   "/images/swift.png",
-  //   "/images/flutter.png",
-  //   "/images/dart.png",
-  // ];
-  // pickColor() {
-  //   Timer(const Duration(milliseconds: 200), () {
-  //     image = images[random.nextInt(images.length)];
-  //   });
-  // }
-
-  // @override
-  // initState() {
-  //   super.initState();
-
-  //   update();
-  // }
-
-  // update() {
-  //   Timer.periodic(Duration(milliseconds: speed.toInt()), (timer) {
-  //     double screenWidth = MediaQuery.of(context).size.width * 0.14;
-  //     double screenHeight = MediaQuery.of(context).size.height * 0.2;
-  //     x += xSpeed;
-  //     y += ySpeed;
-
-  //     if (x + dvdWidth >= screenWidth) {
-  //       xSpeed = -xSpeed;
-  //       x = screenWidth - dvdWidth;
-  //       pickColor();
-  //     } else if (x <= 0) {
-  //       xSpeed = -xSpeed;
-  //       x = 0;
-  //       pickColor();
-  //     }
-
-  //     if (y + dvdHeight >= screenHeight) {
-  //       ySpeed = -ySpeed;
-  //       y = screenHeight - dvdHeight;
-  //       pickColor();
-  //     } else if (y <= 0) {
-  //       ySpeed = -ySpeed;
-  //       y = 0;
-  //       pickColor();
-  //     }
-
-  //     if (mounted) {
-  //       setState(() {});
-  //     }
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Container(

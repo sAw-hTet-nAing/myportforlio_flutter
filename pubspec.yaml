@@ -16,21 +16,15 @@ dependencies:
   get: ^4.6.5
   lottie: ^2.4.0
   google_fonts: ^5.1.0
-  easy_stepper: ^0.7.2
-  easy_debounce: ^2.0.3
-  another_transformer_page_view: ^2.0.1
-  opscroll_web: ^0.3.2
   flutter_animate: ^4.2.0
   smooth_page_indicator: ^1.1.0
   percent_indicator: ^4.2.3
   flutter_cube: ^0.1.1
-  dotted_border: ^2.0.0+3
-  motion: ^1.4.0
-  web_smooth_scroll: ^1.1.0
   carousel_slider: ^4.2.1
   url_launcher: ^6.1.11
   icons_plus: ^4.0.0
   intl: ^0.18.1
+ 
 dev_dependencies:
   flutter_test:
     sdk: flutter

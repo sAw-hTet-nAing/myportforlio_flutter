@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -19,7 +21,6 @@ class _MobileAboutMeWidgetState extends State<MobileAboutMeWidget>
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimensions.screenHeight(context),
       width: Dimensions.screenWidth(context),
       padding: EdgeInsets.all(Dimensions.width10(context)),
       child: Column(

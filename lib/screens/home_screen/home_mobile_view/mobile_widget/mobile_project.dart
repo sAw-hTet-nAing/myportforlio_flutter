@@ -12,14 +12,14 @@ import 'package:myportforlio_flutter/utils/dimesions.dart';
 import 'package:myportforlio_flutter/utils/text_style.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class ProjectWidget extends StatefulWidget {
-  const ProjectWidget({super.key});
+class MobileProjectWidget extends StatefulWidget {
+  const MobileProjectWidget({super.key});
 
   @override
-  State<ProjectWidget> createState() => _ProjectWidgetState();
+  State<MobileProjectWidget> createState() => _MobileProjectWidgetState();
 }
 
-class _ProjectWidgetState extends State<ProjectWidget> {
+class _MobileProjectWidgetState extends State<MobileProjectWidget> {
   final CarouselController _carouselController = CarouselController();
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,6 @@ class _ProjectWidgetState extends State<ProjectWidget> {
               padding:
                   EdgeInsets.symmetric(horizontal: Dimensions.width20(context)),
               width: Dimensions.screenWidth(context) * 0.9,
-              height: Dimensions.screenHeight(context) * 1,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -63,7 +62,7 @@ class _ProjectWidgetState extends State<ProjectWidget> {
                     ),
                     Center(
                       child: SizedBox(
-                          height: Dimensions.screenHeight(context) * 0.7,
+                          height: Dimensions.screenHeight(context) * 0.4,
                           child: Stack(
                             fit: StackFit.passthrough,
                             children: [
@@ -80,7 +79,7 @@ class _ProjectWidgetState extends State<ProjectWidget> {
                                     carouselController: _carouselController,
                                     options: CarouselOptions(
                                       height:
-                                          Dimensions.screenHeight(context) * 7,
+                                          Dimensions.screenHeight(context) * 4,
                                       viewportFraction: 1,
                                       initialPage: 0,
                                       enableInfiniteScroll: true,
@@ -142,6 +141,9 @@ class _ProjectWidgetState extends State<ProjectWidget> {
                                   )),
                             ],
                           )),
+                    ),
+                    SizedBox(
+                      height: Dimensions.height20(context),
                     )
                   ]),
             ));
