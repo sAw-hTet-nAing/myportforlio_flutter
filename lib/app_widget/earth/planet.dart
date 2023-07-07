@@ -60,7 +60,7 @@ class _PlanetState extends State<Planet> with SingleTickerProviderStateMixin {
         name: 'earth',
         scale: Vector3(10.0, 10.0, 10.0),
         backfaceCulling: false,
-        fileName: 'assets/earth/earth.obj');
+        fileName: 'earth/earth.obj');
 
     _scene.world.add(_earth!);
 

@@ -23,7 +23,7 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
         builder: (controller) => LayoutBuilder(builder: (context, constraints) {
               if (constraints.maxWidth <= 900) {
                 return widget.mobileView;
-              } else if (constraints.maxWidth <= 1300) {
+              } else if (constraints.maxWidth <= 1100) {
                 return widget.tabletView;
               } else {
                 return widget.desktopView;
