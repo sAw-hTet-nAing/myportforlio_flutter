@@ -1,5 +1,9 @@
 class AppConstant {
   static const String github = "https://github.com/sAw-hTet-nAing";
+  static const String baseUrl = "https://api.emailjs.com";
+  static const String serviceId = "service_whw9udx";
+  static const String templateId = "template_4end8di";
+  static const String userId = "AMCLaA2B5BKMVf28o";
   static const String gmail = "sawhtetnaing58@gmail.com";
   static const String facebook =
       "https://www.facebook.com/profile.php?id=100008820586196";

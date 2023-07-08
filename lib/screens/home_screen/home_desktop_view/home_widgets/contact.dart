@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:myportforlio_flutter/app_widget/email_dialog.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_controller.dart';
 import 'package:myportforlio_flutter/utils/constants.dart';
 
@@ -90,7 +91,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               IconButton(
-                                onPressed: () => controller.launchCompany(
+                                onPressed: () => controller.launchWeb(
                                     link: AppConstant.github),
                                 icon: Icon(
                                   Bootstrap.github,
@@ -99,7 +100,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () => controller.launchCompany(
+                                onPressed: () => controller.launchWeb(
                                     link: AppConstant.linkedin),
                                 icon: Icon(
                                   Bootstrap.linkedin,
@@ -108,8 +109,10 @@ class _ContactWidgetState extends State<ContactWidget> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () => controller.launchCompany(
-                                    link: AppConstant.gmail),
+                                onPressed: () => showDialog(
+                                    context: context,
+                                    builder: (context) =>
+                                        const SentEmailDialog()),
                                 icon: Icon(
                                   IonIcons.mail_open,
                                   color: Colors.white,
@@ -117,7 +120,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () => controller.launchCompany(
+                                onPressed: () => controller.launchWeb(
                                     link: AppConstant.facebook),
                                 icon: Icon(
                                   Bootstrap.facebook,
@@ -126,7 +129,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () => controller.launchCompany(
+                                onPressed: () => controller.launchViber(
                                     link: AppConstant.viber),
                                 icon: Icon(
                                   FontAwesome.viber,

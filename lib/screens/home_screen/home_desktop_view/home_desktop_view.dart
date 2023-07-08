@@ -66,10 +66,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       physics: const ScrollPhysics(),
                       child: Column(
                         children: [
-                          const IntroductionWidget(),
-                          const AboutMeWidget(),
-                          const ProjectWidget(),
-                          const ExperiencesWidget(),
+                          // const IntroductionWidget(),
+                          // const AboutMeWidget(),
+                          // const ProjectWidget(),
+                          // const ExperiencesWidget(),
                           const ContactWidget(),
                           bottomWidget(context),
                         ],

@@ -24,7 +24,7 @@ dependencies:
   url_launcher: ^6.1.11
   icons_plus: ^4.0.0
   intl: ^0.18.1
- 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

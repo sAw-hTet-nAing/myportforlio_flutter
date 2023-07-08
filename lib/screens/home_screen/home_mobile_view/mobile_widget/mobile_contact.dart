@@ -89,7 +89,7 @@ class _MobileContactWidgetState extends State<MobileContactWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               IconButton(
-                                onPressed: () => controller.launchCompany(
+                                onPressed: () => controller.launchWeb(
                                     link: AppConstant.github),
                                 icon: Icon(
                                   Bootstrap.github,
@@ -98,7 +98,7 @@ class _MobileContactWidgetState extends State<MobileContactWidget> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () => controller.launchCompany(
+                                onPressed: () => controller.launchWeb(
                                     link: AppConstant.linkedin),
                                 icon: Icon(
                                   Bootstrap.linkedin,
@@ -107,7 +107,7 @@ class _MobileContactWidgetState extends State<MobileContactWidget> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () => controller.launchCompany(
+                                onPressed: () => controller.launchWeb(
                                     link: AppConstant.gmail),
                                 icon: Icon(
                                   IonIcons.mail_open,
@@ -116,7 +116,7 @@ class _MobileContactWidgetState extends State<MobileContactWidget> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () => controller.launchCompany(
+                                onPressed: () => controller.launchWeb(
                                     link: AppConstant.facebook),
                                 icon: Icon(
                                   Bootstrap.facebook,
@@ -125,7 +125,7 @@ class _MobileContactWidgetState extends State<MobileContactWidget> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () => controller.launchCompany(
+                                onPressed: () => controller.launchWeb(
                                     link: AppConstant.viber),
                                 icon: Icon(
                                   FontAwesome.viber,

@@ -85,7 +85,7 @@ class MobileExperiencesWidget extends GetView<HomeController> {
                             const Spacer(),
                             TextButton.icon(
                                 icon: const Icon(Icons.arrow_outward_rounded),
-                                onPressed: () => controller.launchCompany(
+                                onPressed: () => controller.launchWeb(
                                     link: expData[index]['address']),
                                 label: const Text("View Company")),
                             SizedBox(
