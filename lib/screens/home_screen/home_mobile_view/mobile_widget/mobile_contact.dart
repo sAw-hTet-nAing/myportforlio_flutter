@@ -106,15 +106,15 @@ class _MobileContactWidgetState extends State<MobileContactWidget> {
                                   size: Dimensions.iconSize32(context),
                                 ),
                               ),
-                              IconButton(
-                                onPressed: () => controller.launchWeb(
-                                    link: AppConstant.gmail),
-                                icon: Icon(
-                                  IonIcons.mail_open,
-                                  color: Colors.white,
-                                  size: Dimensions.iconSize32(context),
-                                ),
-                              ),
+                              // IconButton(
+                              //   onPressed: () => controller.launchWeb(
+                              //       link: AppConstant.gmail),
+                              //   icon: Icon(
+                              //     IonIcons.mail_open,
+                              //     color: Colors.white,
+                              //     size: Dimensions.iconSize32(context),
+                              //   ),
+                              // ),
                               IconButton(
                                 onPressed: () => controller.launchWeb(
                                     link: AppConstant.facebook),

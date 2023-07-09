@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
-import 'package:myportforlio_flutter/app_widget/email_dialog.dart';
 import 'package:myportforlio_flutter/screens/home_screen/home_controller.dart';
 import 'package:myportforlio_flutter/utils/constants.dart';
 
@@ -108,17 +107,17 @@ class _ContactWidgetState extends State<ContactWidget> {
                                   size: Dimensions.iconSize32(context),
                                 ),
                               ),
-                              IconButton(
-                                onPressed: () => showDialog(
-                                    context: context,
-                                    builder: (context) =>
-                                        const SentEmailDialog()),
-                                icon: Icon(
-                                  IonIcons.mail_open,
-                                  color: Colors.white,
-                                  size: Dimensions.iconSize32(context),
-                                ),
-                              ),
+                              // IconButton(
+                              //   onPressed: () => showDialog(
+                              //       context: context,
+                              //       builder: (context) =>
+                              //           const SentEmailDialog()),
+                              //   icon: Icon(
+                              //     IonIcons.mail_open,
+                              //     color: Colors.white,
+                              //     size: Dimensions.iconSize32(context),
+                              //   ),
+                              // ),
                               IconButton(
                                 onPressed: () => controller.launchWeb(
                                     link: AppConstant.facebook),
