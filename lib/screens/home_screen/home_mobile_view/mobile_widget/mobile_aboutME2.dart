@@ -83,7 +83,7 @@ class _MobileAboutMe2WidgetState extends State<MobileAboutMe2Widget>
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox(
-                                width: Dimensions.width30(context) * 2,
+                                width: Dimensions.width30(context) * 1.5,
                                 child: Text(
                                   skillsData[index]["name"],
                                   style: MyTextStyle.normalBold(context)
@@ -96,7 +96,7 @@ class _MobileAboutMe2WidgetState extends State<MobileAboutMe2Widget>
                                 ),
                               ),
                               CircularPercentIndicator(
-                                radius: Dimensions.height15(context) * 1,
+                                radius: Dimensions.height15(context) * 0.9,
                                 lineWidth: 3,
                                 circularStrokeCap: CircularStrokeCap.round,
                                 curve: Curves.bounceIn,

@@ -46,7 +46,8 @@ class _HomeTabletViewState extends State<HomeTabletView> {
                     "assets/animations/space.json",
                     width: Dimensions.screenWidth(context),
                     height: Dimensions.screenHeight(context),
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
+                    animate: true,
                   ),
                 ),
                 Container(

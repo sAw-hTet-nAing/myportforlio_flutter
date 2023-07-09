@@ -74,21 +74,23 @@ class MyTextRevealState extends State<MyTextReveal>
         setState(() {});
       })
       ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          Future.delayed(const Duration(seconds: 1), () {
-            if (mounted) {
-              _controller.reverse();
-            }
-          });
-        } else if (status == AnimationStatus.dismissed) {
-          _nextString();
-          Future.delayed(const Duration(seconds: 1), () {
-            if (mounted) {
-              _controller.forward();
-            } else {
-              _controller.reset();
-            }
-          });
+        if (mounted) {
+          if (status == AnimationStatus.completed) {
+            Future.delayed(const Duration(seconds: 1), () {
+              if (mounted) {
+                _controller.reverse();
+              }
+            });
+          } else if (status == AnimationStatus.dismissed) {
+            _nextString();
+            Future.delayed(const Duration(seconds: 1), () {
+              if (mounted) {
+                _controller.forward();
+              } else {
+                _controller.reset();
+              }
+            });
+          }
         }
       });
 

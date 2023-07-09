@@ -10,6 +10,7 @@ class HomeController extends GetxController {
   HomeController({required this.homeRepo});
   RxBool isLoading = false.obs;
   RxInt activeIndex = 0.obs;
+
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
@@ -32,7 +33,6 @@ class HomeController extends GetxController {
         Get.snackbar("Success", "Message has Been sent");
       } else {
         Get.snackbar("Error", response.statusCode.toString());
-        print(response.bodyString);
       }
     } catch (e) {
       rethrow;

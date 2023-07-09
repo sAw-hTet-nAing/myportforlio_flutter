@@ -29,11 +29,13 @@ class _PlanetState extends State<Planet> with SingleTickerProviderStateMixin {
     _controller = AnimationController(
         duration: const Duration(milliseconds: 30000), vsync: this)
       ..addListener(() {
-        if (!widget.interative) {
-          if (_earth != null) {
-            _earth!.rotation.y = _controller.value * -360;
-            _earth!.updateTransform();
-            _scene.update();
+        if (mounted) {
+          if (!widget.interative) {
+            if (_earth != null) {
+              _earth!.rotation.y = _controller.value * -360;
+              _earth!.updateTransform();
+              _scene.update();
+            }
           }
         }
       })
@@ -80,7 +82,6 @@ class _PlanetState extends State<Planet> with SingleTickerProviderStateMixin {
             return Opacity(
               opacity: animation,
               child: Cube(
-                onObjectCreated: (object) {},
                 onSceneCreated: _onSceneCreated,
                 interactive: widget.interative,
               ),

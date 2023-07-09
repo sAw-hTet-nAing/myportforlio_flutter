@@ -58,7 +58,7 @@ class _MobileContactWidgetState extends State<MobileContactWidget> {
                                   height: Dimensions.height10(context),
                                 ),
                                 SizedBox(
-                                  width: Dimensions.screenWidth(context) * 0.52,
+                                  width: Dimensions.screenWidth(context) * 0.45,
                                   child: Text(
                                     """ <I’m always open to discussing product design work or partnership opportunities./> """,
                                     style: MyTextStyle.normalsmall(context),

@@ -55,6 +55,7 @@ class MobileExperiencesWidget extends GetView<HomeController> {
                             borderRadius: BorderRadius.circular(
                                 Dimensions.radius15(context) / 2)),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             SizedBox(
                               height: Dimensions.height15(context),
@@ -72,10 +73,12 @@ class MobileExperiencesWidget extends GetView<HomeController> {
                             Text(
                               expData[index]['company'],
                               style: MyTextStyle.normalBold(context),
+                              textAlign: TextAlign.center,
                             ),
                             Text(
                               expData[index]['year'],
                               style: MyTextStyle.normalsmall(context),
+                              textAlign: TextAlign.center,
                             ),
                             Text(
                               expData[index]['role'],

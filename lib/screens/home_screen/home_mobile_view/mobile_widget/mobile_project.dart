@@ -62,7 +62,7 @@ class _MobileProjectWidgetState extends State<MobileProjectWidget> {
                     ),
                     Center(
                       child: SizedBox(
-                          height: Dimensions.screenHeight(context) * 0.4,
+                          height: Dimensions.screenHeight(context) * 0.3,
                           child: Stack(
                             fit: StackFit.passthrough,
                             children: [
@@ -79,7 +79,7 @@ class _MobileProjectWidgetState extends State<MobileProjectWidget> {
                                     carouselController: _carouselController,
                                     options: CarouselOptions(
                                       height:
-                                          Dimensions.screenHeight(context) * 4,
+                                          Dimensions.screenHeight(context) * 3,
                                       viewportFraction: 1,
                                       initialPage: 0,
                                       enableInfiniteScroll: true,
@@ -117,7 +117,7 @@ class _MobileProjectWidgetState extends State<MobileProjectWidget> {
                                             Icons.arrow_upward,
                                             color: Colors.white,
                                             size:
-                                                Dimensions.iconSize25(context),
+                                                Dimensions.iconSize16(context),
                                           )),
                                       AnimatedSmoothIndicator(
                                         axisDirection: Axis.vertical,
@@ -126,7 +126,9 @@ class _MobileProjectWidgetState extends State<MobileProjectWidget> {
                                         count: projectData.length,
                                         effect: const WormEffect(
                                             activeDotColor: AppColor.purple,
-                                            dotColor: Colors.white),
+                                            dotColor: Colors.white,
+                                            dotHeight: 5,
+                                            dotWidth: 5),
                                       ),
                                       IconButton(
                                           onPressed: () =>
@@ -135,7 +137,7 @@ class _MobileProjectWidgetState extends State<MobileProjectWidget> {
                                             Icons.arrow_downward,
                                             color: Colors.white,
                                             size:
-                                                Dimensions.iconSize25(context),
+                                                Dimensions.iconSize16(context),
                                           )),
                                     ],
                                   )),

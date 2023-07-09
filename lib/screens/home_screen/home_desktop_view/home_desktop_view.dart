@@ -26,6 +26,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late final ScrollController _scrollController;
+
   @override
   void initState() {
     _scrollController = ScrollController();
@@ -49,7 +50,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     "assets/animations/space.json",
                     width: Dimensions.screenWidth(context),
                     height: Dimensions.screenHeight(context),
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
+                    animate: true,
                   ),
                 ),
                 Container(

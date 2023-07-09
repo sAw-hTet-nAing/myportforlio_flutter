@@ -44,7 +44,8 @@ class _HomeMobileViewState extends State<HomeMobileView> {
                     "assets/animations/space.json",
                     width: Dimensions.screenWidth(context),
                     height: Dimensions.screenHeight(context),
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
+                    animate: true,
                   ),
                 ),
                 Container(

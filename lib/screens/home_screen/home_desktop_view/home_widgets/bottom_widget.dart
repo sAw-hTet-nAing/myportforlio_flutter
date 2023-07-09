@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myportforlio_flutter/utils/app_color.dart';
+
 import 'package:myportforlio_flutter/utils/constants.dart';
 import 'package:myportforlio_flutter/utils/dimesions.dart';
 
@@ -30,7 +30,7 @@ Widget bottomWidget(BuildContext context) {
                   ],
                   decoration: TextDecoration.underline,
                   decorationThickness: 3,
-                  decorationColor: AppColor.purple)),
+                  decorationColor: Colors.white)),
         ],
       ));
 }
