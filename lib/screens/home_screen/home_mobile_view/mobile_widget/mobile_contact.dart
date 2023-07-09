@@ -39,7 +39,7 @@ class _MobileContactWidgetState extends State<MobileContactWidget> {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(50),
                               child: Image.asset(
-                                "/images/sawpp.png",
+                                "assets/images/sawpp.png",
                                 height: Dimensions.height40(context) * 2.5,
                                 width: Dimensions.height40(context) * 2.5,
                               ),

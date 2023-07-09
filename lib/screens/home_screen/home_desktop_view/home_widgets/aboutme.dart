@@ -81,7 +81,7 @@ class AboutMeWidget extends StatelessWidget {
                     height: Dimensions.screenHeight(context) * 0.25,
                     width: Dimensions.screenWidth(context) * 0.25,
                     child: LottieBuilder.asset(
-                      "/animations/development.json",
+                      "assets/animations/development.json",
                       fit: BoxFit.cover,
                     ),
                   ),

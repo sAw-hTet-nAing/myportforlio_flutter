@@ -97,7 +97,8 @@ class ExperiencesWidget extends GetView<HomeController> {
         ),
         Row(
           children: [
-            Expanded(child: LottieBuilder.asset("/animations/show_case.json")),
+            Expanded(
+                child: LottieBuilder.asset("assets/animations/show_case.json")),
             SizedBox(
               width: Dimensions.screenWidth(context) * 0.4,
               child: Text(

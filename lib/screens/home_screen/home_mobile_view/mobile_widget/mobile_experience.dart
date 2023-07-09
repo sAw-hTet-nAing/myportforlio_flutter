@@ -106,7 +106,7 @@ class MobileExperiencesWidget extends GetView<HomeController> {
           ),
         ),
         LottieBuilder.asset(
-          "/animations/show_case.json",
+          "assets/animations/show_case.json",
           height: Dimensions.screenHeight(context) * 0.5,
           width: Dimensions.screenWidth(context),
         ),

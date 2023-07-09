@@ -29,13 +29,11 @@ class _PlanetState extends State<Planet> with SingleTickerProviderStateMixin {
     _controller = AnimationController(
         duration: const Duration(milliseconds: 30000), vsync: this)
       ..addListener(() {
-        if (mounted) {
-          if (!widget.interative) {
-            if (_earth != null) {
-              _earth!.rotation.y = _controller.value * -360;
-              _earth!.updateTransform();
-              _scene.update();
-            }
+        if (!widget.interative) {
+          if (_earth != null) {
+            _earth!.rotation.y = _controller.value * -360;
+            _earth!.updateTransform();
+            _scene.update();
           }
         }
       })
@@ -44,7 +42,7 @@ class _PlanetState extends State<Planet> with SingleTickerProviderStateMixin {
 
   @override
   void dispose() {
-    _controller.stop();
+    _controller.dispose();
 
     super.dispose();
   }
@@ -62,7 +60,7 @@ class _PlanetState extends State<Planet> with SingleTickerProviderStateMixin {
         name: 'earth',
         scale: Vector3(10.0, 10.0, 10.0),
         backfaceCulling: false,
-        fileName: 'earth/earth.obj');
+        fileName: 'assets/earth/earth.obj');
 
     _scene.world.add(_earth!);
 
@@ -75,7 +73,7 @@ class _PlanetState extends State<Planet> with SingleTickerProviderStateMixin {
       height: widget.height,
       width: widget.width,
       child: TweenAnimationBuilder<double>(
-          duration: const Duration(seconds: 0),
+          duration: const Duration(seconds: 3),
           curve: Curves.easeIn,
           tween: Tween(begin: 0, end: 1),
           builder: (context, animation, child) {

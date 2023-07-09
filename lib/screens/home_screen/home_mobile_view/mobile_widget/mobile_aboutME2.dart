@@ -43,7 +43,7 @@ class _MobileAboutMe2WidgetState extends State<MobileAboutMe2Widget>
               height: Dimensions.screenHeight(context) * 0.5,
               width: Dimensions.screenWidth(context),
               child: LottieBuilder.asset(
-                "/animations/development.json",
+                "assets/animations/development.json",
                 fit: BoxFit.contain,
               ),
             ),
