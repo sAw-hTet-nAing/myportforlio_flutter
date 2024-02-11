@@ -151,10 +151,13 @@ class AboutMeWidget extends StatelessWidget {
                                                                   context) *
                                                               0.7),
                                         ),
-                                        percent: skillsData[index]["process"],
+                                        percent: double.parse(skillsData[index]
+                                                ["process"]
+                                            .toString()),
                                         progressColor: processColor(
-                                            process: skillsData[index]
-                                                ["process"]),
+                                            process: double.parse(
+                                                skillsData[index]["process"]
+                                                    .toString())),
                                       )
                                     ],
                                   )

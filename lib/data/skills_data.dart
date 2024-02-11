@@ -1,7 +1,7 @@
 List<Map<String, dynamic>> skillsData = [
   {
     "name": "Flutter",
-    "process": 1,
+    "process": 1.0,
     "percent": 100,
     "image": "assets/images/flutter.png"
   },
@@ -19,7 +19,7 @@ List<Map<String, dynamic>> skillsData = [
   },
   {
     "name": "Vs Code",
-    "process": 1,
+    "process": 1.0,
     "percent": 100,
     "image": "assets/images/vscode.png"
   },

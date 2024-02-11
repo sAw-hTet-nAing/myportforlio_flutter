@@ -11,7 +11,7 @@ List<Map<String, dynamic>> projectData = [
     "name": "Mobile Mother (Multi Vendor Ecommerce App)",
     "image": "assets/projects/mobile_mother.png"
   },
-  {"name": "Wisdom Tree (Book Libiary App)", "image": "/projects/wt.jpg"},
+  {"name": "Wisdom Tree (Book Libiary App)", "image": "assets/projects/wt.jpg"},
   {
     "name": "Kwee Lamin(Ecommerce App)",
     "image": "assets/projects/KweeLaMin.png"
