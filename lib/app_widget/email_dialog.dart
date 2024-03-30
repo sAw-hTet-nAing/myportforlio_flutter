@@ -27,7 +27,7 @@ class _SentEmailDialogState extends State<SentEmailDialog> {
                     myTextField(context,
                         title: "Name",
                         hint: "Your name",
-                        icon: Iconsax.profile_circle,
+                        icon: Iconsax.profile_circle_bulk,
                         controller: controller.nameController),
                     SizedBox(
                       height: Dimensions.height10(context),
@@ -43,7 +43,7 @@ class _SentEmailDialogState extends State<SentEmailDialog> {
                     myTextField(context,
                         title: "Subject",
                         hint: "Subject",
-                        icon: Iconsax.subtitle,
+                        icon: Iconsax.subtitle_bulk,
                         controller: controller.subjectController),
                     SizedBox(
                       height: Dimensions.height10(context),
@@ -51,7 +51,7 @@ class _SentEmailDialogState extends State<SentEmailDialog> {
                     myTextField(context,
                         title: "Message",
                         hint: "Your Message",
-                        icon: Iconsax.message,
+                        icon: Iconsax.message_bulk,
                         controller: controller.messageController),
                     SizedBox(
                       height: Dimensions.height30(context),

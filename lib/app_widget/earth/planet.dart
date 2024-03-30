@@ -3,11 +3,10 @@ import 'package:flutter_cube/flutter_cube.dart';
 
 class Planet extends StatefulWidget {
   const Planet(
-      {Key? key,
+      {super.key,
       required this.interative,
       required this.height,
-      required this.width})
-      : super(key: key);
+      required this.width});
   final bool interative;
   final double height;
   final double width;

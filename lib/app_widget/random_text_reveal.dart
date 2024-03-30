@@ -1,11 +1,10 @@
-// ignore_for_file: file_names
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:myportforlio_flutter/data/my_soruces.dart';
 
 class MyTextReveal extends StatefulWidget {
   const MyTextReveal({
-    Key? key,
+    super.key,
     required this.strings,
     this.initialText,
     this.shouldPlayOnStart = true,
@@ -21,7 +20,7 @@ class MyTextReveal extends StatefulWidget {
     this.softWrap,
     this.textAlign,
     this.semanticsLabel,
-  }) : super(key: key);
+  });
 
   final List<String> strings;
   final String? initialText;

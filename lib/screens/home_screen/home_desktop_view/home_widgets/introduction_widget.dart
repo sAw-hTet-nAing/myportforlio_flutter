@@ -7,7 +7,7 @@ import 'package:myportforlio_flutter/utils/constants.dart';
 import 'package:myportforlio_flutter/utils/dimesions.dart';
 import 'package:myportforlio_flutter/utils/text_style.dart';
 import '../../../../app_widget/earth/planet.dart';
-import '../../../../app_widget/randomText_reveal.dart';
+import '../../../../app_widget/random_text_reveal.dart';
 
 class IntroductionWidget extends StatefulWidget {
   const IntroductionWidget({super.key});
